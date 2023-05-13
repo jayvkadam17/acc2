@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Examples</title>
+  <script>
+    // Task 1: Count the occurrences
+    function countOccurrences(text) {
+      const words = text.split(" ");
+      const wordCount = new Map();
+
+      for (let word of words) {
+        word = word.trim();
+        if (word !== "") {
+          if (wordCount.has(word)) {
+            wordCount.set(word, wordCount.get(word) + 1);
+          } else {
+            wordCount.set(word, 1);
+          }
+        }
+      }
+
+      return wordCount;
+    }
+
+    const text = "Lorem ipsum dolor sit amet consectetur adipiscing elit ipsum ipsum sit";
+    const result1 = countOccurrences(text);
+    console.log("Task 1:", result1);
+
+    // Task 2: Only unique items are allowed
+    function removeDuplicates(numbers) {
+      return [...new Set(numbers)];
+    }
+
+    const numbers = [1, 2, 3, 4, 2, 5, 1, 3, 4];
+    const result2 = removeDuplicates(numbers);
+    console.log("Task 2:", result2);
+
+    // Task 3: Swap the values
+    function swapValues(x, y) {
+      [x, y] = [y, x];
+      return [x, y];
+    }
+
+    let x = 5;
+    let y = 10;
+    const result3 = swapValues(x, y);
+    console.log("Task 3:", result3);
+
+    // Task 4: Access random elements
+    function extractElements(array) {
+      const [first, second, , , , ...rest] = array;
+      return [first, second, rest[array.length - 1]];
+    }
+
+    const array = [1, 2, 3, 4, 5];
+    const result4 = extractElements(array);
+    console.log("Task 4:", result4);
+
+    // Task 5: Min and max values
+    function findMinMax(array) {
+      return {
+        min: Math.min(...array),
+        max: Math.max(...array)
+      };
+    }
+
+    const numbers2 = [5, 2, 7, 1, 9];
+    const result5 = findMinMax(numbers2);
+    console.log("Task 5:", result5);
+
+    // Task 6: Nested Objects
+    function extractPersonDetails(person) {
+      const { name, address: { street } } = person;
+      return { name, street };
+    }
+
+    const person = {
+      name: "John Doe",
+      address: {
+        street: "123 Main St",
+        city: "City",
+        state: "State"
+      }
+    };
+    const result6 = extractPersonDetails(person);
+    console.log("Task 6:", result6);
+  </script>
+</head>
+<body>
+</body>
+</html>
